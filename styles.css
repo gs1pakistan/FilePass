@@ -1,0 +1,73 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #3a7bd5, #00d2ff);
+}
+
+.container {
+    text-align: center;
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+    width: 400px;
+}
+
+h2, h3 {
+    color: #1e3c72;
+    margin-bottom: 15px;
+}
+
+input[type="password"], input[type="file"] {
+    margin: 10px 0;
+    padding: 12px;
+    width: 100%;
+    border: 2px solid #1e90ff;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+input[type="password"]:focus, input[type="file"]:focus {
+    border-color: #4682b4;
+    box-shadow: 0 0 5px rgba(30, 144, 255, 0.5);
+}
+
+button {
+    padding: 12px 25px;
+    background-color: #1e90ff;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #4682b4;
+}
+
+#fileLinks a {
+    display: block;
+    color: #1e90ff;
+    text-decoration: none;
+    margin: 5px 0;
+    font-weight: bold;
+}
+
+#fileLinks a:hover {
+    color: #4682b4;
+}
+
+#uploadMoreBtn, #backToMainBtn {
+    margin-top: 15px;
+    display: inline-block;
+    width: 48%;
+}
