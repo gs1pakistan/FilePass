@@ -3,39 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Protected File Upload</title>
+    <title>CloudStore - Secure File Storage</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container">
-        <h2>Password Protected File Upload</h2>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-cloud"></i>
+                <span>CloudStore</span>
+            </div>
+            <nav>
+                <button class="nav-item active" data-section="my-files">
+                    <i class="fas fa-folder"></i>
+                    <span>My Files</span>
+                </button>
+                <button class="nav-item" data-section="shared">
+                    <i class="fas fa-users"></i>
+                    <span>Shared</span>
+                </button>
+                <button class="nav-item" data-section="recent">
+                    <i class="fas fa-clock"></i>
+                    <span>Recent</span>
+                </button>
+                <button class="nav-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </button>
+            </nav>
+            <div class="storage-info">
+                <div class="storage-text">
+                    <span>Storage Used</span>
+                    <span id="storageAmount">0 MB / 1 GB</span>
+                </div>
+                <div class="storage-bar">
+                    <div class="storage-fill"></div>
+                </div>
+            </div>
+        </aside>
 
-        <div id="enterPasswordSection" class="section">
-            <h3>Enter Password</h3>
-            <input type="password" id="enterPassword" placeholder="Enter Password" />
-            <button id="enterPasswordBtn">Enter</button>
-        </div>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Authentication Section -->
+            <div id="authSection" class="auth-section">
+                <div class="auth-card">
+                    <h2><i class="fas fa-lock"></i> Secure Access</h2>
+                    <div id="enterPasswordSection">
+                        <input type="password" id="enterPassword" placeholder="Enter Password" />
+                        <button id="enterPasswordBtn" class="btn-primary">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                    </div>
+                    <div id="setPasswordSection" style="display: none;">
+                        <input type="password" id="setPassword" placeholder="Create New Password" />
+                        <input type="password" id="confirmPassword" placeholder="Confirm Password" />
+                        <button id="setPasswordBtn" class="btn-primary">
+                            <i class="fas fa-key"></i> Set Password
+                        </button>
+                    </div>
+                </div>
+            </div>
 
-        <div id="setPasswordSection" class="section" style="display: none;">
-            <h3>Set a Password</h3>
-            <input type="password" id="setPassword" placeholder="Enter Password" />
-            <button id="setPasswordBtn">Set Password</button>
-        </div>
+            <!-- File Management Section -->
+            <div id="fileSection" class="file-section" style="display: none;">
+                <div class="toolbar">
+                    <div class="search-bar">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search files..." id="searchFiles">
+                    </div>
+                    <div class="actions">
+                        <button id="uploadBtn" class="btn-primary">
+                            <i class="fas fa-upload"></i> Upload Files
+                        </button>
+                        <input type="file" id="fileInput" multiple style="display: none;" />
+                    </div>
+                </div>
 
-        <div id="uploadSection" class="section" style="display: none;">
-            <h3>Upload Files</h3>
-            <input type="password" id="uploadPassword" placeholder="Enter Password to Upload" />
-            <input type="file" id="fileInput" multiple />
-            <button id="uploadBtn">Upload</button>
-        </div>
+                <div class="files-container">
+                    <div class="files-header">
+                        <h2>My Files</h2>
+                        <div class="view-options">
+                            <button id="gridView" class="active"><i class="fas fa-th"></i></button>
+                            <button id="listView"><i class="fas fa-list"></i></button>
+                        </div>
+                    </div>
+                    <div id="filesList" class="files-grid"></div>
+                </div>
+            </div>
+        </main>
+    </div>
 
-        <div id="accessSection" class="section" style="display: none;">
-            <h3>Access Uploaded Files</h3>
-            <input type="password" id="accessPassword" placeholder="Enter Password to Access Files" />
-            <button id="accessFileBtn">Access Files</button>
-            <div id="fileLinks" class="file-links" style="display: none;"></div>
-            <button id="uploadMoreBtn" style="display: none;">Upload More</button>
-            <button id="backToMainBtn" style="display: none;">Back to Main</button>
+    <!-- Modal for file details -->
+    <div id="fileModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>File Details</h3>
+            <div id="fileDetails"></div>
         </div>
     </div>
 
