@@ -1,67 +1,69 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Helvetica', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #f4f7fb;
-    color: #333;
+    background-color: #121212;
+    color: #e0e0e0;
 }
 
 .container {
     text-align: center;
-    background-color: #ffffff;
+    background-color: #1f1f1f;
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+    width: 380px;
 }
 
 h2 {
-    color: #1a73e8;
-    font-weight: 600;
-    margin-bottom: 25px;
+    color: #bb86fc;
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
 }
 
 h3 {
-    color: #333333;
-    font-weight: 500;
+    color: #ffffff;
+    font-weight: 400;
     margin-bottom: 15px;
 }
 
 input[type="password"], input[type="file"] {
     margin: 10px 0;
-    padding: 10px;
+    padding: 12px;
     width: 100%;
-    border: 1px solid #ddd;
+    border: none;
+    outline: none;
     border-radius: 6px;
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    font-size: 1rem;
 }
 
 button {
-    padding: 10px 20px;
-    background-color: #1a73e8;
+    padding: 12px 25px;
+    background-color: #bb86fc;
     color: #ffffff;
     border: none;
-    border-radius: 6px;
+    border-radius: 8px;
     cursor: pointer;
-    font-weight: 500;
-    margin-top: 15px;
-    transition: all 0.3s ease;
+    transition: background 0.3s ease;
 }
 
 button:hover {
-    background-color: #135ab8;
+    background-color: #7a52b3;
 }
 
 #fileLinks a {
     display: block;
-    color: #1a73e8;
+    color: #bb86fc;
     text-decoration: none;
     margin: 5px 0;
-    transition: color 0.2s;
 }
 
 #fileLinks a:hover {
-    color: #135ab8;
+    color: #7a52b3;
 }
