@@ -73,7 +73,7 @@ function showAccessSection() {
         uploadedFiles.forEach(file => {
             const link = document.createElement('a');
             link.href = file.url;
-            link.textContent = Download ${file.name};
+            link.textContent = `Download ${file.name}`;
             link.download = file.name;
             fileLinksContainer.appendChild(link);
         });
