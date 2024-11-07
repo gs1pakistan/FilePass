@@ -1,178 +1,102 @@
-/* Body and Main Container */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f1f3f4;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    background: linear-gradient(135deg, #7e2c97, #ec8bc9);
+    overflow: hidden;
 }
 
 .container {
-    width: 400px;
-    background-color: #ffffff;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    width: 400px;
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Header Styles */
 h2 {
-    color: #1a73e8;
+    color: #3f3d56;
     margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: 600;
-}
-
-/* Password Sections */
-#enterPasswordSection, #setPasswordSection, #uploadSection, #accessSection {
-    display: none;
-}
-
-input[type="password"], input[type="file"] {
-    margin: 12px 0;
-    padding: 12px;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    font-size: 16px;
-}
-
-button {
-    padding: 12px 20px;
-    background-color: #1a73e8;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-button:hover {
-    background-color: #1769aa;
-}
-
-/* File Links Section */
-#fileLinks a {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: #1a73e8;
-    text-decoration: none;
-    margin: 10px 0;
-    padding: 15px;
-    border: 1px solid #e3e4e8;
-    border-radius: 8px;
-    font-weight: 500;
-    background-color: #f9f9f9;
-    transition: all 0.3s ease;
-}
-
-#fileLinks a::before {
-    content: '\f15c'; /* Font Awesome document icon */
-    font-family: 'FontAwesome';
-    font-size: 18px;
-    margin-right: 12px;
-    color: #1a73e8;
-}
-
-#fileLinks a:hover {
-    background-color: #e8f0fe;
-    border-color: #1a73e8;
-    transform: scale(1.02);
-}
-
-#fileLinks a:hover::before {
-    color: #1769aa;
-}
-
-/* File Access Section */
-#fileLinks {
-    margin-top: 20px;
-}
-
-#fileLinks a {
-    animation: fadeIn 0.5s ease-in-out;
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Additional Buttons */
-#uploadMoreBtn, #backToMainBtn {
-    padding: 10px 20px;
-    margin-top: 10px;
-    background-color: #f1f3f4;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    color: #1a73e8;
-    cursor: pointer;
-    font-size: 14px;
-    width: 100%;
-    transition: background-color 0.3s ease;
-}
-
-#uploadMoreBtn:hover, #backToMainBtn:hover {
-    background-color: #e8f0fe;
-}
-
-/* Add some spacing and alignment for smaller elements */
-#uploadSection, #accessSection {
-    margin-top: 20px;
+    font-size: 1.8em;
 }
 
 h3 {
-    color: #5f6368;
-    font-size: 18px;
-    margin-bottom: 20px;
+    color: #6a097d;
+    margin-bottom: 15px;
+    font-size: 1.2em;
 }
 
-/* Password Fields Styling */
-input[type="password"], input[type="file"] {
-    padding: 10px;
-    border-radius: 8px;
-    border: 1px solid #ddd;
+input[type="password"],
+input[type="file"] {
+    padding: 12px 15px;
+    margin: 15px 0;
     width: 100%;
-    font-size: 16px;
-    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: border-color 0.3s;
 }
 
-input[type="password"]:focus, input[type="file"]:focus {
-    border-color: #1a73e8;
+input[type="password"]:focus,
+input[type="file"]:focus {
+    border-color: #6a097d;
     outline: none;
 }
 
-/* Additional Stylings for Form Sections */
-#enterPasswordSection, #setPasswordSection, #uploadSection, #accessSection {
-    padding: 20px;
+button {
+    padding: 12px 30px;
+    background-color: #6a097d;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 15px;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #c060a1;
+}
+
+.section {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.section[style*="display: none;"] {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.file-links {
     margin-top: 20px;
+    display: grid;
+    gap: 10px;
 }
 
-#enterPasswordSection, #setPasswordSection, #uploadSection {
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+.file-links a {
+    color: #6a097d;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 8px;
+    border-radius: 6px;
+    background: #f3f3f3;
+    transition: background-color 0.3s;
 }
 
-/* Responsive Design */
-@media (max-width: 500px) {
-    .container {
-        width: 90%;
-    }
-    button {
-        padding: 10px 18px;
-        font-size: 14px;
-    }
+.file-links a:hover {
+    background-color: #f0d7e4;
+    color: #c060a1;
 }

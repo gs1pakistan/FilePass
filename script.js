@@ -4,7 +4,7 @@ document.getElementById('enterPasswordBtn').addEventListener('click', function()
 
     if (storedPassword) {
         if (enteredPassword === storedPassword) {
-            showAccessSection();
+            showSection('accessSection');
         } else {
             alert('Incorrect password, please try again.');
         }
@@ -19,8 +19,7 @@ document.getElementById('setPasswordBtn').addEventListener('click', function() {
     if (setPassword) {
         localStorage.setItem('appPassword', setPassword);
         alert('Password set successfully!');
-        document.getElementById('setPasswordSection').style.display = 'none';
-        document.getElementById('uploadSection').style.display = 'block';
+        showSection('uploadSection');
     } else {
         alert('Please enter a password.');
     }
@@ -42,8 +41,7 @@ document.getElementById('uploadBtn').addEventListener('click', function() {
 
             localStorage.setItem('uploadedFiles', JSON.stringify(uploadedFiles));
             alert('Files uploaded successfully!');
-            document.getElementById('uploadSection').style.display = 'none';
-            showAccessSection();
+            showSection('accessSection');
         } else {
             alert('Please select files to upload.');
         }
@@ -79,20 +77,24 @@ function showAccessSection() {
         });
 
         fileLinksContainer.style.display = 'block';
-        document.getElementById('accessSection').style.display = 'block';
-        document.getElementById('uploadMoreBtn').style.display = 'block';
-        document.getElementById('backToMainBtn').style.display = 'block';
-        document.getElementById('enterPasswordSection').style.display = 'none';
+        showSection('accessSection');
     } else {
         alert('No files found. Please upload files first.');
     }
 }
 
+function showSection(sectionId) {
+    document.querySelectorAll('.section').forEach(section => {
+        section.style.display = 'none';
+    });
+    document.getElementById(sectionId).style.display = 'block';
+}
+
 document.getElementById('uploadMoreBtn').addEventListener('click', function() {
-    document.getElementById('accessSection').style.display = 'none';
-    document.getElementById('uploadSection').style.display = 'block';
+    showSection('uploadSection');
 });
 
 document.getElementById('backToMainBtn').addEventListener('click', function() {
     location.reload();
 });
+

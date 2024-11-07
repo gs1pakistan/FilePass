@@ -5,37 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Protected File Upload</title>
     <link rel="stylesheet" href="styles.css">
-    <!-- Add Font Awesome CDN link here -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <h2>Password Protected File Upload</h2>
 
-        <div id="enterPasswordSection">
+        <div id="enterPasswordSection" class="section">
             <h3>Enter Password</h3>
             <input type="password" id="enterPassword" placeholder="Enter Password" />
             <button id="enterPasswordBtn">Enter</button>
         </div>
 
-        <div id="setPasswordSection" style="display: none;">
+        <div id="setPasswordSection" class="section" style="display: none;">
             <h3>Set a Password</h3>
             <input type="password" id="setPassword" placeholder="Enter Password" />
             <button id="setPasswordBtn">Set Password</button>
         </div>
 
-        <div id="uploadSection" style="display: none;">
+        <div id="uploadSection" class="section" style="display: none;">
             <h3>Upload Files</h3>
             <input type="password" id="uploadPassword" placeholder="Enter Password to Upload" />
             <input type="file" id="fileInput" multiple />
             <button id="uploadBtn">Upload</button>
         </div>
 
-        <div id="accessSection" style="display: none;">
+        <div id="accessSection" class="section" style="display: none;">
             <h3>Access Uploaded Files</h3>
             <input type="password" id="accessPassword" placeholder="Enter Password to Access Files" />
             <button id="accessFileBtn">Access Files</button>
-            <div id="fileLinks" style="display: none;"></div>
+            <div id="fileLinks" class="file-links" style="display: none;"></div>
             <button id="uploadMoreBtn" style="display: none;">Upload More</button>
             <button id="backToMainBtn" style="display: none;">Back to Main</button>
         </div>
