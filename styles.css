@@ -61,9 +61,53 @@ button:hover {
     display: block;
     color: #bb86fc;
     text-decoration: none;
-    margin: 5px 0;
+    margin: 10px 0;
+    padding: 12px 20px;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+#fileLinks a::before {
+    content: '\f15c'; /* Font Awesome document icon */
+    font-family: 'FontAwesome';
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #bb86fc;
+    transition: transform 0.3s ease;
 }
 
 #fileLinks a:hover {
     color: #7a52b3;
+    background-color: rgba(122, 82, 179, 0.1);
+    border-color: #7a52b3;
+    transform: scale(1.05);
+}
+
+#fileLinks a:hover::before {
+    transform: translateY(-50%) scale(1.2);
+    color: #7a52b3;
+}
+
+/* Adding animation to the hover effect for smooth transitions */
+#fileLinks a {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
