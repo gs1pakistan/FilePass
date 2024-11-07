@@ -1,50 +1,86 @@
-// scripts.js
+const form = document.getElementById("generate-form");
+const qr = document.getElementById("qrcode");
 
-// Dummy file storage
-let uploadedFileLink = '';
+// Button submit
+const onGenerateSubmit = (e) => {
+  e.preventDefault();
 
-async function uploadFile() {
-    const fileInput = document.getElementById('file-input');
-    const file = fileInput.files[0];
+  clearUI();
 
-    if (!file) {
-        alert('Please select a file to upload');
-        return;
-    }
+  const url = document.getElementById("url").value;
+  const size = document.getElementById("size").value;
 
-    // Mock URL for the uploaded file (replace with your server URL)
-    const serverURL = 'https://file-pass-alpha.vercel.app';
+  // Validate url
+  if (url === "") {
+    alert("Please enter a URL");
+  } else {
+    showSpinner();
+    // Show spinner for 1 sec
+    setTimeout(() => {
+      hideSpinner();
+      generateQRCode(url, size);
+      showScanner();
+      // Generate the save button after the qr code image src is ready
+      setTimeout(() => {
+        // Get save url
+        const saveUrl = qr.querySelector("canvas").toDataURL();
+        // Create save button
+        createSaveBtn(saveUrl);
+      }, 50);
+    }, 1000);
+  }
+};
 
-    // Simulate file upload and create a link
-    uploadedFileLink = `${serverURL}/${file.name}`;
-    document.getElementById('file-link').innerHTML = `Download link: <a href="${uploadedFileLink}" target="_blank">${uploadedFileLink}</a>`;
+// Generate QR code
+const generateQRCode = (url, size) => {
+  const qrcode = new QRCode("qrcode", {
+    text: url,
+    width: size,
+    height: size,
+  });
+};
 
-    // Generate the QR Code for the download link
-    generateQRCode(uploadedFileLink);
-}
+// Clear QR code and save button
+const clearUI = () => {
+  qr.innerHTML = "";
+  const saveBtn = document.getElementById("save-link");
+  if (saveBtn) {
+    saveBtn.remove();
+  }
+};
 
-function generateQRCode(text) {
-    const qrCodeDiv = document.getElementById('qr-code');
-    qrCodeDiv.innerHTML = '';
+// hide  scanner
+const showScanner = () => {
+  const scanner = document.getElementById("qrCodeContainer");
+  scanner.style.display = "block";
+};
 
-    // Use a library to generate QR codes (e.g., QRCode.js)
-    const qrCode = new QRCode(qrCodeDiv, {
-        text: text,
-        width: 128,
-        height: 128,
-    });
-}
+// Show spinner
+const showSpinner = () => {
+  const spinner = document.getElementById("spinner");
+  spinner.style.display = "block";
+};
 
-// Delete file from server after download
-function deleteFile() {
-    if (uploadedFileLink) {
-        // Make request to delete file from server (mock example)
-        console.log(`Deleting file at: ${uploadedFileLink}`);
-        uploadedFileLink = '';
-        document.getElementById('file-link').innerHTML = '';
-        document.getElementById('qr-code').innerHTML = '';
-    }
-}
+// Hide spinner
+const hideSpinner = () => {
+  const spinner = document.getElementById("spinner");
+  spinner.style.display = "none";
+};
 
-// Listen for download action
-document.getElementById('file-link').addEventListener('click', deleteFile);
+// Create save button to download QR code as image
+const createSaveBtn = (saveUrl) => {
+  const link = document.createElement("a");
+  link.id = "save-link";
+  link.classList =
+    'bg-red-500 hover:bg-red-700 text-white font-bold py-2 rounded w-1/3 m-auto my-5';
+  link.innerHTML = "Save Image";
+
+  link.href = saveUrl;
+  link.download = "qrcode.png";
+
+  document.getElementById("generated").appendChild(link);
+};
+
+hideSpinner();
+
+form.addEventListener("submit", onGenerateSubmit);
