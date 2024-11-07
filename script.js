@@ -1,19 +1,25 @@
-document.getElementById('uploadBtn').addEventListener('click', function() {
-    const fileInput = document.getElementById('fileInput');
-    const file = fileInput.files[0];
-    
-    if (file) {
-        const url = URL.createObjectURL(file); // Create a temporary URL for the file
-        const qrCode = `Download Link: ${url}`; // Simulated QR code text
+var qrcode = new QRCode("qrcode");
 
-        document.getElementById('qrCode').innerText = qrCode;
-        
-        // Automatically delete after user downloads (simulated with a timeout)
-        setTimeout(() => {
-            fileInput.value = ''; // Clear the input
-            document.getElementById('qrCode').innerText = ''; // Remove the QR code link
-        }, 20000); // Change time according to needs, simulating file expiry
-    } else {
-        alert('Please choose a file to upload.');
-    }
-});
+function makeCode () {		
+	var elText = document.getElementById("text");
+	
+	if (!elText.value) {
+		alert("Input a text");
+		elText.focus();
+		return;
+	}
+	
+	qrcode.makeCode(elText.value);
+}
+
+makeCode();
+
+$("#text").
+	on("blur", function () {
+		makeCode();
+	}).
+	on("keydown", function (e) {
+		if (e.keyCode == 13) {
+			makeCode();
+		}
+	});
