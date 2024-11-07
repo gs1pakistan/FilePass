@@ -190,15 +190,16 @@
     </style>
 </head>
 <body>
-    <div class="loadingspinner">
-        <div id="square1"></div>
-        <div id="square2"></div>
-        <div id="square3"></div>
-        <div id="square4"></div>
-        <div id="square5"></div>
-    </div>
+   
     <div class="container">
         <h1>QR Code Generator</h1>
+        <div class="loadingspinner">
+            <div id="square1"></div>
+            <div id="square2"></div>
+            <div id="square3"></div>
+            <div id="square4"></div>
+            <div id="square5"></div>
+        </div>
         <input type="text" id="textInput" placeholder="Enter text or URL">
         <button onclick="generateQRCode()">Generate QR Code</button>
         <div id="qrCodeContainer">
