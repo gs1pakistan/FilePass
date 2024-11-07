@@ -3,90 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CloudStore - Secure File Storage</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js" integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>File Sharing</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="logo">
-                <i class="fas fa-cloud"></i>
-                <span>CloudStore</span>
-            </div>
-            
-            <div class="storage-info">
-                <div class="storage-text">
-                    <span>Storage Used</span>
-                    <span id="storageAmount">0 MB / 1 GB</span>
-                </div>
-                <div class="storage-bar">
-                    <div class="storage-fill"></div>
-                </div>
-            </div>
-        </aside>
-
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Authentication Section -->
-            <div id="authSection" class="auth-section">
-                <div class="auth-card">
-                    <h2><i class="fas fa-lock"></i> Secure Access</h2>
-                    <div id="enterPasswordSection">
-                        <input type="password" id="enterPassword" placeholder="Enter Password" />
-                        <button id="enterPasswordBtn" class="btn-primary">
-                            <i class="fas fa-sign-in-alt"></i> Login
-                        </button>
-                    </div>
-                    <div id="setPasswordSection" style="display: none;">
-                        <input type="password" id="setPassword" placeholder="Create New Password" />
-                        <input type="password" id="confirmPassword" placeholder="Confirm Password" />
-                        <button id="setPasswordBtn" class="btn-primary">
-                            <i class="fas fa-key"></i> Set Password
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- File Management Section -->
-            <div id="fileSection" class="file-section" style="display: none;">
-                <div class="toolbar">
-                    <div class="search-bar">
-                        <i class="fas fa-search"></i>
-                        <input type="text" placeholder="Search files..." id="searchFiles">
-                    </div>
-                    <div class="actions">
-                        <button id="uploadBtn" class="btn-primary">
-                            <i class="fas fa-upload"></i> Upload Files
-                        </button>
-                        <input type="file" id="fileInput" multiple style="display: none;" />
-                    </div>
-                </div>
-
-                <div class="files-container">
-                    <div class="files-header">
-                        <h2>My Files</h2>
-                        <div class="view-options">
-                            <button id="gridView" class="active"><i class="fas fa-th"></i></button>
-                            <button id="listView"><i class="fas fa-list"></i></button>
-                        </div>
-                    </div>
-                    <div id="filesList" class="files-grid"></div>
-                </div>
-            </div>
-        </main>
+    <h1>File Sharing with QR Code</h1>
+    <div id="upload-section">
+        <input type="file" id="file-input" />
+        <button onclick="uploadFile()">Upload File</button>
+        <div id="qr-code"></div>
+        <p id="file-link"></p>
     </div>
-
-    <!-- Modal for file details -->
-    <div id="fileModal" class="modal" style="display: none;">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3>File Details</h3>
-            <div id="fileDetails"></div>
-        </div>
-    </div>
-
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
