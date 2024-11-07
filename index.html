@@ -1,2 +1,57 @@
-<input id="text" type="text" value="https://hogangnono.com" style="width:80%" /><br />
-<div id="qrcode"></div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        img {
+            margin-top: 20px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Generator</h1>
+        <input type="text" id="textInput" placeholder="Enter text or URL">
+        <button onclick="generateQRCode()">Generate QR Code</button>
+        <div id="qrCodeContainer">
+            <!-- QR Code will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function generateQRCode() {
+            const text = document.getElementById("textInput").value;
+            if (text.trim() === "") {
+                alert("Please enter some text or a URL");
+                return;
+            }
+            const apiUrl = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(text)}`;
+            const qrCodeContainer = document.getElementById("qrCodeContainer");
+            qrCodeContainer.innerHTML = `<img src="${apiUrl}" alt="QR Code">`;
+        }
+    </script>
+</body>
+</html>
