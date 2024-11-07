@@ -1,81 +1,67 @@
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background: linear-gradient(135deg, #141e30, #243b55);
-    color: #ffffff;
-    overflow: hidden;
+    background-color: #f4f7fb;
+    color: #333;
 }
 
 .container {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    background-color: #ffffff;
     padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
     width: 400px;
-    animation: fadeIn 1s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.9); }
-    to { opacity: 1; transform: scale(1); }
 }
 
 h2 {
-    color: #00f2fe;
-    font-weight: 700;
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    color: #1a73e8;
+    font-weight: 600;
+    margin-bottom: 25px;
 }
 
 h3 {
-    color: #01c9db;
+    color: #333333;
     font-weight: 500;
-    font-size: 1.2rem;
+    margin-bottom: 15px;
 }
 
 input[type="password"], input[type="file"] {
     margin: 10px 0;
-    padding: 12px;
+    padding: 10px;
     width: 100%;
-    border: none;
-    outline: none;
+    border: 1px solid #ddd;
     border-radius: 6px;
-    color: #ffffff;
-    background-color: rgba(0, 242, 254, 0.1);
-    font-size: 1rem;
 }
 
 button {
-    padding: 12px 25px;
-    margin-top: 12px;
-    background: linear-gradient(45deg, #00c9db, #00f2fe);
+    padding: 10px 20px;
+    background-color: #1a73e8;
     color: #ffffff;
     border: none;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 6px;
     cursor: pointer;
+    font-weight: 500;
+    margin-top: 15px;
     transition: all 0.3s ease;
 }
 
 button:hover {
-    transform: scale(1.05);
-    background: linear-gradient(45deg, #00a7b0, #01e1e6);
+    background-color: #135ab8;
 }
 
 #fileLinks a {
     display: block;
-    color: #00f2fe;
+    color: #1a73e8;
     text-decoration: none;
-    margin: 10px 0;
-    transition: color 0.3s;
+    margin: 5px 0;
+    transition: color 0.2s;
 }
 
 #fileLinks a:hover {
-    color: #01c9db;
+    color: #135ab8;
 }
