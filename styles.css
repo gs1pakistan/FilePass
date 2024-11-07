@@ -306,8 +306,5 @@ input[type="text"]:focus {
         margin-left: 64px;
     }
 
-    .search-bar {
-        width: 100%;
-        max-width: 300px;
-    }
+    
 }
